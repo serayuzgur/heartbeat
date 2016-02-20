@@ -17,10 +17,48 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.hearthbeat</groupId>
-    <artifactId>parent</artifactId>
+    <groupId>com.heartbeat</groupId>
+    <artifactId>heartbeat-parent</artifactId>
     <version>0.1</version>
     <packaging>pom</packaging>
+    <url>https://github.com/serayuzgur/heartbeat</url>
+    <name>heartbeat</name>
+    <description>heartbeat parent project</description>
+    <inceptionYear>2016</inceptionYear>
 
+    <modules>
+        <module>heartbeat-common</module>
+        <module>heartbeat-pins</module>
+        <module>heartbeat-network</module>
+        <module>heartbeat-log</module>
+        <module>heartbeat-app</module>
+    </modules>
+
+
+    <developers>
+        <developer>
+            <name>Seray Uzgur</name>
+            <id>serayuzgur</id>
+            <timezone>+2</timezone>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/serayuzgur/heartbeat/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:git@github.com/serayuzgur/heartbeat.git</connection>
+        <developerConnection>scm:git:git@github.com/serayuzgur/heartbeat.git</developerConnection>
+        <url>https://github.com/serayuzgur/heartbeat</url>
+        <tag>HEAD</tag>
+    </scm>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://raw.githubusercontent.com/serayuzgur/heartbeat/master/LICENSE</url>
+        </license>
+    </licenses>
 
 </project>
