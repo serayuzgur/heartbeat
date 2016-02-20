@@ -1,10 +1,9 @@
-#heartbeat
+#heartbeat-app
 
 ## Synopsis
 
-heartbeat is a minimalist java framework for single-board computers. (CHIP, raspberrypi, beaglebone etc.)
-
-**SBC** = Single Board Computer
+heartbeat-app is a skeleton java application for SBCs.
+It includes all heartbeat libraries with a basic usage scenarios.
 
 ## Code Example
 
@@ -12,31 +11,16 @@ heartbeat is a minimalist java framework for single-board computers. (CHIP, rasp
 
 ##Motivation
 
-**SBCs**  are different from traditional computers and needs different best-practices. Google developed **Android APIs** with this motivation.
-After some programming experience with SBCs we decided to create a **framework** solves common development problems by aiding **developer** with the **best-practices** and **minimalist libraries**.
+>TODO: Write something about testing problems, abstraction from SBC's
 
 ## Installation
 
 >TODO: Provide code examples and explanations of how to get the project.
 
 ## API Reference
-### heartbeat-common 
-heartbeat-common is a minimalist java common library for SBCs.It includes every day ,best-practice classes and methods for SBCs.
-[for more...](./heartbeat-common/README.md)
-### heartbeat-pin
-heartbeat-pin is a minimalist java pin access layer for SBCs.
-[for more...](./heartbeat-pin/README.md)
-### heartbeat-network
-heartbeat-network is a minimalist java network access library for SBCs.It supports UDP,TCP and HTTP/S protocols for easy usage. 
-[for more...](./heartbeat-network/README.md)
-### heartbeat-log
-heartbeat-log is a minimalist java logging library for SBCs.
-It supports file and console and monitor (node) appenders as a really optimized and small library.
-[for more...](./heartbeat-log/README.md)
-### heartbeat-app
-heartbeat-app is a skeleton java application for SBC's.
-It includes all heartbeat libraries with a basic usage scenarios.
-[for more...](./heartbeat-app/README.md)
+
+>TODO: Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+
 ## Tests
 
 >TODO: Describe and show how to run the tests with code examples.

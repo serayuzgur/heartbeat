@@ -26,9 +26,14 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
     <description>heartbeat parent project</description>
     <inceptionYear>2016</inceptionYear>
 
+    <properties>
+        <source>1.8</source>
+        <target>1.8</target>
+    </properties>
+
     <modules>
         <module>heartbeat-common</module>
-        <module>heartbeat-pins</module>
+        <module>heartbeat-pin</module>
         <module>heartbeat-network</module>
         <module>heartbeat-log</module>
         <module>heartbeat-app</module>
@@ -43,6 +48,19 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
         </developer>
     </developers>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${source}</source>
+                    <target>${target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <issueManagement>
         <system>GitHub Issues</system>
         <url>https://github.com/serayuzgur/heartbeat/issues</url>
@@ -54,6 +72,7 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
         <url>https://github.com/serayuzgur/heartbeat</url>
         <tag>HEAD</tag>
     </scm>
+
     <licenses>
         <license>
             <name>MIT</name>
