@@ -10,6 +10,8 @@ heartbeat is a minimalist java framework for single-board computers. (CHIP, rasp
 
 >TODO: An example of HeartbeatApplication
 
+[CheatSheet](./CheatSheet.md)
+
 ##Motivation
 
 **SBCs**  are different from traditional computers and needs different best-practices. Google developed **Android APIs** with this motivation.
