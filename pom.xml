@@ -39,6 +39,17 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
         <module>heartbeat-app</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 
     <developers>
         <developer>
@@ -49,6 +60,19 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
     </developers>
 
     <build>
+        <sourceDirectory>${pom.basedir}/src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>${pom.basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+        <testSourceDirectory>${pom.basedir}/src/test/java</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>${pom.basedir}/src/test/resources</directory>
+            </testResource>
+        </testResources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
