@@ -27,8 +27,8 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
     <inceptionYear>2016</inceptionYear>
 
     <properties>
-        <source>1.8</source>
-        <target>1.8</target>
+        <source>1.7</source>
+        <target>1.7</target>
     </properties>
 
     <modules>
