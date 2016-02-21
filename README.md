@@ -44,8 +44,7 @@ It includes all heartbeat libraries with a basic usage scenarios.
 >TODO: Describe and show how to run the tests with code examples.
 
 ## Contributors
-
->TODO: Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+Please clone or fork the project and create a pull request with at least one commit. You can add your notes on the pull request or share with me from twitter @serayuzgur. Later we will have a quick chat and welcome to the team.
 
 ## License
 The MIT License (MIT)
