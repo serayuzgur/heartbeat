@@ -1,5 +1,6 @@
 #heartbeat
 
+[![codecov.io](https://codecov.io/github/serayuzgur/heartbeat/coverage.svg?branch=master)](https://codecov.io/github/serayuzgur/heartbeat?branch=master)
 ## Synopsis
 
 heartbeat is a minimalist Java framework for single-board computers (C.H.I.P., Raspberry Pi, BeagleBone, etc.)
