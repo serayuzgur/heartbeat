@@ -1,5 +1,5 @@
 #heartbeat
-
+[![codecov.io](https://codecov.io/github/serayuzgur/heartbeat/coverage.svg?branch=master)](https://codecov.io/github/serayuzgur/heartbeat?branch=master)
 ## Synopsis
 
 heartbeat is a minimalist java framework for single-board computers. (CHIP, raspberrypi, beaglebone etc.)
@@ -44,7 +44,7 @@ It includes all heartbeat libraries with a basic usage scenarios.
 >TODO: Describe and show how to run the tests with code examples.
 
 ## Contributors
-Please clone or fork the project and create a pull request with at least one commit. You can add your notes on the pull request or share with me from twitter @serayuzgur. Later we will have a quick chat and welcome to the team.
+Please clone or fork the project and create a push request with at least one commit. You can add your notes on the pull request or share with me from twitter @serayuzgur. Later we will have a quick chat and welcome to the team.
 
 ## License
 The MIT License (MIT)
