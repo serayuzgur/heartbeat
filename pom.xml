@@ -42,6 +42,12 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>io.fastjson</groupId>
+                <artifactId>boon</artifactId>
+                <version>0.33</version>
+            </dependency>
+
+            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
@@ -56,6 +62,11 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
             <name>Seray Uzgur</name>
             <id>serayuzgur</id>
             <timezone>+2</timezone>
+        </developer>
+        <developer>
+            <name>Jim Manley</name>
+            <id>CHIPnovator</id>
+            <timezone>-6</timezone>
         </developer>
     </developers>
 
