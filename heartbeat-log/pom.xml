@@ -14,5 +14,11 @@
     <artifactId>heartbeat-log</artifactId>
     <version>0.1</version>
 
-    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

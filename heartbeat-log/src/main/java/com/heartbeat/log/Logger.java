@@ -1,5 +1,6 @@
 package com.heartbeat.log;
 
+import java.io.PrintStream;
 import java.util.Calendar;
 
 import static java.lang.String.format;
@@ -11,6 +12,7 @@ import static java.lang.String.format;
  */
 public final class Logger {
     private static Level defaultPackageLevel = Level.INFO;
+    private static PrintStream stream = System.out;
 
     //TODO: Appender  system
     //TODO: Set printwriters of Exceptions
@@ -75,37 +77,35 @@ public final class Logger {
 
     public static final void error(String tag, String message, Exception ex) {
         print(Level.ERROR, tag, message);
-        ex.printStackTrace(System.out);
+        ex.printStackTrace(getStream());
     }
 
     public static final void error(String tag, String message, Exception ex, Object... args) {
         print(Level.ERROR, tag, message, args);
-        ex.printStackTrace(System.out);
+        ex.printStackTrace(getStream());
     }
 
 
     private static final void print(Level level, String tag, String message) {
-        if (defaultPackageLevel.ordinal() < level.ordinal())
+        if (level.ordinal() < defaultPackageLevel.ordinal())
             return;
         StringBuilder builder = getBuilderWithDate(level, tag);
         builder.append(message);
-        System.out.println(builder.toString());
+        getStream().println(builder.toString());
     }
 
 
     private static final void print(Level level, String tag, String message, Object... args) {
-        if (defaultPackageLevel.ordinal() < level.ordinal())
+        if (level.ordinal() < defaultPackageLevel.ordinal())
             return;
         StringBuilder builder = getBuilderWithDate(level, tag);
         builder.append(format(message, args));
-        System.out.println(builder.toString());
+        getStream().println(builder.toString());
     }
 
     private static final StringBuilder getBuilderWithDate(Level level, String tag) {
         StringBuilder builder = new StringBuilder();
         Calendar now = Calendar.getInstance();
-        builder.append(level.name());
-        builder.append(" \t");
         builder.append('[');
         builder.append(now.get(Calendar.YEAR));
         builder.append('-');
@@ -120,11 +120,20 @@ public final class Logger {
         builder.append(now.get(Calendar.SECOND));
         builder.append(',');
         builder.append(now.get(Calendar.MILLISECOND));
-        builder.append(']');
-        builder.append('\t');
+        builder.append("]\t");
+        builder.append(level.name());
+        builder.append(" \t");
         builder.append(tag);
         builder.append(": \t");
         return builder;
+    }
+
+    public static PrintStream getStream() {
+        return stream;
+    }
+
+    public static void setStream(PrintStream stream) {
+        Logger.stream = stream;
     }
 
     public enum Level {
