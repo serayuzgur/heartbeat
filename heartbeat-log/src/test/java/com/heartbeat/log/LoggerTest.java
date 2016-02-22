@@ -49,7 +49,7 @@ public class LoggerTest {
         outputStream = new ByteArrayOutputStream();
         Logger.setStream(new PrintStream(outputStream));
         Logger.setLevel(Logger.Level.DEBUG);
-        Logger.trace(TAG, message);
+        Logger.trace(TAG, message, "1", "2");
         assert outputStream.size() == 0;
 
 
@@ -84,7 +84,7 @@ public class LoggerTest {
         outputStream = new ByteArrayOutputStream();
         Logger.setStream(new PrintStream(outputStream));
         Logger.setLevel(Logger.Level.INFO);
-        Logger.debug(TAG, message);
+        Logger.debug(TAG, message, "1", "2");
         assert outputStream.size() == 0;
 
     }
@@ -118,7 +118,7 @@ public class LoggerTest {
         outputStream = new ByteArrayOutputStream();
         Logger.setStream(new PrintStream(outputStream));
         Logger.setLevel(Logger.Level.WARNING);
-        Logger.info(TAG, message);
+        Logger.info(TAG, message, "1", "2");
         assert outputStream.size() == 0;
     }
 
@@ -151,7 +151,7 @@ public class LoggerTest {
         outputStream = new ByteArrayOutputStream();
         Logger.setStream(new PrintStream(outputStream));
         Logger.setLevel(Logger.Level.ERROR);
-        Logger.warn(TAG, message);
+        Logger.warn(TAG, message, "1", "2");
         assert outputStream.size() == 0;
     }
 
