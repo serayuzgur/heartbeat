@@ -3,9 +3,6 @@ package com.heartbeat.common.conf;
 import org.boon.json.JsonException;
 import org.junit.Test;
 
-/**
- * Created by serayuzgur on 21/02/16.
- */
 public class ConfigurationTest {
 
     private class SampleConf extends Configuration {
