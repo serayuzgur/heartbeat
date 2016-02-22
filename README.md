@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/serayuzgur/heartbeat.svg?branch=master)](https://travis-ci.org/serayuzgur/heartbeat)
 [![codecov.io](https://codecov.io/github/serayuzgur/heartbeat/coverage.svg?branch=master)](https://codecov.io/github/serayuzgur/heartbeat?branch=master)
+[![Gitter](https://badges.gitter.im/serayuzgur/heartbeat.svg)](https://gitter.im/serayuzgur/heartbeat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 ## Synopsis
 
 heartbeat is a minimalist Java framework for single-board computers (C.H.I.P., Raspberry Pi, BeagleBone, etc.)
@@ -46,7 +47,7 @@ It includes all heartbeat libraries with basic usage scenarios.
 >TODO: Describe and show how to run the tests with code examples.
 
 ## Contributors
-Please clone or fork the project and create a pull request with at least one commit. You can add your notes on the pull request or share with me via twitter @serayuzgur. Later, we will have a quick chat and welcome you to the team.
+Please clone or fork the project and create a pull request with at least one commit. You can add your notes on the pull request or share with me via twitter @serayuzgur. Later, we will have a quick chat and welcome you to the team. [![Gitter](https://badges.gitter.im/serayuzgur/heartbeat.svg)](https://gitter.im/serayuzgur/heartbeat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## License
 The MIT License (MIT)
