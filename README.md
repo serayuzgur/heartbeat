@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/serayuzgur/heartbeat.svg?branch=master)](https://travis-ci.org/serayuzgur/heartbeat)
 [![codecov.io](https://codecov.io/github/serayuzgur/heartbeat/coverage.svg?branch=master)](https://codecov.io/github/serayuzgur/heartbeat?branch=master)
 [![Gitter](https://badges.gitter.im/serayuzgur/heartbeat.svg)](https://gitter.im/serayuzgur/heartbeat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+![codecov.io](https://codecov.io/github/serayuzgur/heartbeat/branch.svg?branch=master)
 ## Synopsis
 
 heartbeat is a minimalist Java framework for single-board computers (C.H.I.P., Raspberry Pi, BeagleBone, etc.)
