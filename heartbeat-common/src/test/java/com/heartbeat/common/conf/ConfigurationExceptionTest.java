@@ -16,7 +16,7 @@ public class ConfigurationExceptionTest {
         assert e2.getCause() instanceof NullPointerException;
         assert e2.getCause().getMessage().equals("TestNull");
 
-        ConfigurationException e3 = new ConfigurationException("Test", new NullPointerException("TestNull"));
+        ConfigurationException e3 = new ConfigurationException(new NullPointerException("TestNull"));
         assert e3.getCause() instanceof NullPointerException;
         assert e3.getCause().getMessage().equals("TestNull");
     }
