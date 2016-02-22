@@ -1,5 +1,6 @@
 package com.heartbeat.common.conf;
 
+import org.boon.json.JsonException;
 import org.junit.Test;
 
 /**
@@ -28,6 +29,18 @@ public class ConfigurationTest {
 
         assert sampleConf.getName().equals("Node1");
         assert sampleConf.getTimeout() == 2000;
+
+    }
+
+    @Test
+    public void testLoadJsonException() throws Exception {
+        try {
+            SampleConf sampleConf = Configuration.loadJson(ConfigurationTest.class.getClassLoader().getResourceAsStream("sampleBad.json"), SampleConf.class);
+            assert false;
+        } catch (ConfigurationException e) {
+            assert e.getCause() instanceof JsonException;
+        }
+
 
     }
 }
