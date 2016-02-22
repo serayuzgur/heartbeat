@@ -14,5 +14,22 @@
     <artifactId>heartbeat-network</artifactId>
     <version>0.1</version>
 
-    
+    <dependencies>
+        <dependency>
+            <groupId>com.heartbeat</groupId>
+            <artifactId>heartbeat-log</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.heartbeat</groupId>
+            <artifactId>heartbeat-common</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
