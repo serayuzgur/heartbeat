@@ -18,7 +18,6 @@ public class ConfigurationTest {
         }
     }
 
-    ;
 
     @Test
     public void testLoadJson() throws Exception {
