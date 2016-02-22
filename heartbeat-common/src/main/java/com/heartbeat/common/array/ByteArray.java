@@ -5,9 +5,7 @@ import java.util.Arrays;
 /**
  * A helper class for byte[]'s
  */
-public class ByteArray {
-    private ByteArray() {
-    }
+public final class ByteArray {
 
     /**
      * Trims the given array. Finds the starting position of null index and copies with {@link Arrays#copyOf(boolean[], int)}
