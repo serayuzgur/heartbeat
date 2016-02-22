@@ -7,6 +7,9 @@ import java.util.Arrays;
  */
 public final class ByteArray {
 
+    private ByteArray() {
+    }
+
     /**
      * Trims the given array. Finds the starting position of null index and copies with {@link Arrays#copyOf(boolean[], int)}
      *
