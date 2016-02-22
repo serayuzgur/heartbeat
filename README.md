@@ -1,5 +1,7 @@
 #heartbeat
 
+[![Join the chat at https://gitter.im/serayuzgur/heartbeat](https://badges.gitter.im/serayuzgur/heartbeat.svg)](https://gitter.im/serayuzgur/heartbeat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/serayuzgur/heartbeat.svg?branch=master)](https://travis-ci.org/serayuzgur/heartbeat)
 [![codecov.io](https://codecov.io/github/serayuzgur/heartbeat/coverage.svg?branch=master)](https://codecov.io/github/serayuzgur/heartbeat?branch=master)
 ## Synopsis
