@@ -4,6 +4,8 @@ package com.heartbeat.network.udp;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
@@ -56,6 +58,17 @@ public class UDPOperationsTest {
             }
         }.start();
 
+    }
+
+    @Test
+    public void testPrivateConstructor() throws Exception {
+        // Use reflection to ensure that the constructor is private
+        Constructor constructor = UDPOperations.class.getDeclaredConstructor();
+        assert Modifier.isPrivate(constructor.getModifiers());
+
+        // Mark the class as accessible and retrieve it, this gives us the code coverage
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 
 }
