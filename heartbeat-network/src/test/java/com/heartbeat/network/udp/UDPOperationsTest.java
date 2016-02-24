@@ -24,6 +24,7 @@ public class UDPOperationsTest {
                 try {
                     DatagramSocket receiver = new DatagramSocket(9998);
                     assert new String(UDPOperations.receiveData(receiver)).equals(data);
+                    receiver.close();
                 } catch (SocketException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -48,6 +49,7 @@ public class UDPOperationsTest {
                 try {
                     DatagramSocket receiver = new DatagramSocket(9);
                     UDPOperations.receive(receiver);
+                    receiver.close();
                     assert false;
 
                 } catch (SocketException e) {
