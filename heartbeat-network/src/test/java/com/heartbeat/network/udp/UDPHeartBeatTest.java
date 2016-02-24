@@ -2,16 +2,17 @@ package com.heartbeat.network.udp;
 
 import com.heartbeat.network.BeatListener;
 import com.heartbeat.network.HeartBeatConfiguration;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
-import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.SocketException;
 
 /**
  * Created by serayuzgur on 24/02/16.
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UDPHeartBeatTest {
     HeartBeatConfiguration conf = new HeartBeatConfiguration() {
         @Override
@@ -57,15 +58,11 @@ public class UDPHeartBeatTest {
     public void testStart() throws Exception {
         UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
         heartBeat.start();
-        try {
-            DatagramSocket receiver = new DatagramSocket(conf.getServerPort());
-            assert new String(UDPOperations.receiveData(receiver)).equals("TestNode");
-            heartBeat.stop();
-        } catch (SocketException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        DatagramSocket receiver = new DatagramSocket(conf.getServerPort());
+        assert new String(UDPOperations.receiveData(receiver)).equals("TestNode");
+        heartBeat.stop();
+        receiver.close();
+
     }
 
     @Test
@@ -82,16 +79,12 @@ public class UDPHeartBeatTest {
             }
         });
         heartBeat.start();
-        try {
-            DatagramSocket receiver = new DatagramSocket(conf.getServerPort());
-            DatagramPacket receivedPacket = UDPOperations.receive(receiver);
-            assert new String(receivedPacket.getData()).equals("TestNode");
-            UDPOperations.send(receiver, receivedPacket.getAddress(), receivedPacket.getPort(), "TestServer".getBytes());
-            heartBeat.stop();
-        } catch (SocketException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        DatagramSocket receiver = new DatagramSocket(conf.getServerPort());
+        DatagramPacket receivedPacket = UDPOperations.receive(receiver);
+        assert new String(receivedPacket.getData()).equals("TestNode");
+        UDPOperations.send(receiver, receivedPacket.getAddress(), receivedPacket.getPort(), "TestServer".getBytes());
+        heartBeat.stop();
+        receiver.close();
+
     }
 }
