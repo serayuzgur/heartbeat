@@ -3,6 +3,8 @@ package com.heartbeat.log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 
 /**
  * Created by serayuzgur on 21/02/16.
@@ -195,5 +197,16 @@ public class LoggerTest {
         Logger.error(TAG, message, new Exception("123"), "1", "2");
         message = "Test Log 1 2\njava.lang.Exception: 123";
         assert new String(outputStream.toByteArray()).contains((message));
+    }
+
+    @org.junit.Test
+    public void testPrivateConstructor() throws Exception {
+        // Use reflection to ensure that the constructor is private
+        Constructor constructor = Logger.class.getDeclaredConstructor();
+        assert Modifier.isPrivate(constructor.getModifiers());
+
+        // Mark the class as accessible and retrieve it, this gives us the code coverage
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }

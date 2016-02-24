@@ -2,6 +2,9 @@ package com.heartbeat.common.array;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 
 public class ByteArrayTest {
 
@@ -26,5 +29,16 @@ public class ByteArrayTest {
         byte[] original2 = {0, 0};
         trimmed = ByteArray.trim(original2);
         assert trimmed.length == 0;
+    }
+
+    @Test
+    public void testPrivateConstructor() throws Exception {
+        // Use reflection to ensure that the constructor is private
+        Constructor constructor = ByteArray.class.getDeclaredConstructor();
+        assert Modifier.isPrivate(constructor.getModifiers());
+
+        // Mark the class as accessible and retrieve it, this gives us the code coverage
+        constructor.setAccessible(true);
+        constructor.newInstance();
     }
 }
