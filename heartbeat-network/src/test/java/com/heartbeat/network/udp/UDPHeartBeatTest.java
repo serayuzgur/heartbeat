@@ -55,6 +55,12 @@ public class UDPHeartBeatTest {
     };
 
     @Test
+    public void testStop() throws Exception {
+        UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
+        heartBeat.stop();
+    }
+
+    @Test
     public void testStart() throws Exception {
         UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
         heartBeat.start();
@@ -62,7 +68,6 @@ public class UDPHeartBeatTest {
         assert new String(UDPOperations.receiveData(receiver)).equals("TestNode");
         heartBeat.stop();
         receiver.close();
-
     }
 
     @Test
@@ -85,6 +90,15 @@ public class UDPHeartBeatTest {
         UDPOperations.send(receiver, receivedPacket.getAddress(), receivedPacket.getPort(), "TestServer".getBytes());
         heartBeat.stop();
         receiver.close();
+
+    }
+
+    @Test
+    public void testStart2X() throws Exception {
+        UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
+        heartBeat.start();
+        heartBeat.start();
+        heartBeat.stop();
 
     }
 }
