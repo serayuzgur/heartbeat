@@ -7,7 +7,6 @@ import com.heartbeat.network.HeartBeatConfiguration;
 
 import java.net.*;
 import java.util.Enumeration;
-import java.util.Objects;
 
 /**
  * This Class does the broadcasts the given {@link HeartBeatInfo} from the
@@ -113,20 +112,20 @@ public class UDPHeartBeat {
                                     continue; // Don't want to broadcast to the loopback interface
                                 }
                                 for (InterfaceAddress interfaceAddress : networkInterface.getInterfaceAddresses()) {
-                                    if (Objects.isNull(interfaceAddress.getBroadcast())) {
+                                    if (interfaceAddress.getBroadcast() == null) {
                                         continue;
                                     }
                                     // Send the broadcast package!
                                     try {
                                         UDPOperations.send(socket, interfaceAddress.getBroadcast(), serverPort, me.serialize());
                                         byte[] response = UDPOperations.receiveData(socket);
-                                        if (Objects.nonNull(beatListener))
+                                        if (beatListener != null)
                                             beatListener.onBeat(response);
                                         timeToWait = interval;
                                     } catch (Exception e) {
                                         Logger.error(TAG, "Server Error %s:%d", e, interfaceAddress.getBroadcast(), serverPort);
                                         timeToWait = failedInterval;
-                                        if (Objects.nonNull(beatListener))
+                                        if (beatListener != null)
                                             beatListener.onError(e);
                                     }
                                 }
