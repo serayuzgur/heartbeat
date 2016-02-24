@@ -41,14 +41,24 @@ public final class UDPOperations {
      * @return received data
      * @throws IOException
      */
-    public static final byte[] receive(DatagramSocket socket) throws IOException {
+    public static final byte[] receiveData(DatagramSocket socket) throws IOException {
+        return receive(socket).getData();
+    }
+
+    /**
+     * Waits for receiving UDP datagram from the given socket.
+     *
+     * @param socket socket to listen
+     * @return received data
+     * @throws IOException
+     */
+    public static final DatagramPacket receive(DatagramSocket socket) throws IOException {
         byte[] receive = new byte[15000];
         DatagramPacket packet = new DatagramPacket(receive, receive.length);
         socket.receive(packet);
         byte[] data = ByteArray.trim(receive);
-
+        packet.setData(data);
         Logger.info(TAG, format("%s[%d]\tPacket received\tlength: %d", packet.getAddress().getHostAddress(), packet.getPort(), data.length));
-
-        return data;
+        return packet;
     }
 }
