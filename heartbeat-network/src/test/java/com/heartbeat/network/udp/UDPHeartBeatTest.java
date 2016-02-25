@@ -134,4 +134,13 @@ public class UDPHeartBeatTest {
         heartBeat.stop();
 
     }
+
+    @Test
+    public void testStop2X() throws Exception {
+        UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
+        heartBeat.start();
+        heartBeat.stop();
+        heartBeat.stop();
+
+    }
 }
