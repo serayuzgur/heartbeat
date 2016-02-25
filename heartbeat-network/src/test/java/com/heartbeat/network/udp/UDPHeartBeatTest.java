@@ -153,4 +153,13 @@ public class UDPHeartBeatTest {
         heartBeat.stop();
 
     }
+
+    @Test
+    public void testStartWithSleep() throws Exception {
+        UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
+        heartBeat.start();
+        Thread.sleep(conf.getInterval() * 3);
+        heartBeat.stop();
+
+    }
 }
