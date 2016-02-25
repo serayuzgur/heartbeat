@@ -22,8 +22,11 @@ heartbeat is a minimalist Java framework for single-board computers (C.H.I.P., R
 After some programming experience with SBCs, we decided to create a **framework** to solve common development problems by aiding **developers** with **best practices** and **minimalist libraries**.
 
 ## Installation
-
->TODO: Provide code examples and explanations of how to get the project.
+```
+git clone https://github.com/serayuzgur/heartbeat.git
+cd heartbeat
+mvn package
+```
 
 ## API Reference
 ### heartbeat-common 
@@ -44,8 +47,9 @@ heartbeat-app is a skeleton Java application for SBC's.
 It includes all heartbeat libraries with basic usage scenarios.
 [for more...](./heartbeat-app/README.md)
 ## Tests
-
->TODO: Describe and show how to run the tests with code examples.
+```
+mvn test
+```
 
 ## Contributors
 Please clone or fork the project and create a pull request with at least one commit. You can add your notes on the pull request or share with me via twitter @serayuzgur. Later, we will have a quick chat and welcome you to the team. [![Gitter](https://badges.gitter.im/serayuzgur/heartbeat.svg)](https://gitter.im/serayuzgur/heartbeat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
