@@ -71,7 +71,40 @@ public class UDPHeartBeatTest {
     }
 
     @Test
+    public void testStartWithResponse() throws Exception {
+        UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
+        heartBeat.start();
+        DatagramSocket receiver = new DatagramSocket(conf.getServerPort());
+        DatagramPacket receivedPacket = UDPOperations.receive(receiver);
+        assert new String(receivedPacket.getData()).equals("TestNode");
+        UDPOperations.send(receiver, receivedPacket.getAddress(), receivedPacket.getPort(), "TestServer".getBytes());
+        heartBeat.stop();
+        receiver.close();
+    }
+
+    @Test
     public void testStartWithListener() throws Exception {
+        UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me, new BeatListener() {
+            @Override
+            public void onBeat(byte[] response) {
+                assert new String(response).equals("TestServer");
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+        heartBeat.start();
+        DatagramSocket receiver = new DatagramSocket(conf.getServerPort());
+        DatagramPacket receivedPacket = UDPOperations.receive(receiver);
+        assert new String(receivedPacket.getData()).equals("TestNode");
+        heartBeat.stop();
+        receiver.close();
+    }
+
+    @Test
+    public void testStartWithListenerAndResponse() throws Exception {
         UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me, new BeatListener() {
             @Override
             public void onBeat(byte[] response) {
@@ -98,6 +131,34 @@ public class UDPHeartBeatTest {
         UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
         heartBeat.start();
         heartBeat.start();
+        heartBeat.stop();
+
+    }
+
+    @Test
+    public void testStop2X() throws Exception {
+        UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
+        heartBeat.start();
+        heartBeat.stop();
+        heartBeat.stop();
+
+    }
+
+    @Test
+    public void testStartStop2X() throws Exception {
+        UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
+        heartBeat.start();
+        heartBeat.stop();
+        heartBeat.start();
+        heartBeat.stop();
+
+    }
+
+    @Test
+    public void testStartWithSleep() throws Exception {
+        UDPHeartBeat heartBeat = new UDPHeartBeat(conf, me);
+        heartBeat.start();
+        Thread.sleep(conf.getInterval() * 3);
         heartBeat.stop();
 
     }
