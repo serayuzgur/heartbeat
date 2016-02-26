@@ -9,9 +9,6 @@ import org.junit.runners.MethodSorters;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-/**
- * Created by serayuzgur on 24/02/16.
- */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UDPHeartBeatTest {
     HeartBeatConfiguration conf = new HeartBeatConfiguration() {
