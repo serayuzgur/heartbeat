@@ -4,11 +4,30 @@ import java.io.File;
 
 /**
  * A information class for Pin
- * Holds code forex. "P13_8" and path "/sys/class/gpio/gpio/P13_8/value
+ * Holds code forex. "408" and path "/sys/class/gpio/gpio408
  */
 public class Pin {
+    /*  Pins
+ *
+ *  X10-P0: 408
+ *  X10-P1: 409
+ *  X10-P2: 410
+ *  X10-P3: 411
+ *  X10-P4: 412
+ *  X10-P5: 413
+ *  X10-P6: 414
+ *  X10-P7: 415
+ */
     private String code;
     private File path;
+
+    public Pin() {
+    }
+
+    public Pin(String code, File path) {
+        this.code = code;
+        this.path = path;
+    }
 
     public String getCode() {
         return code;
