@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.IOException;
 
 public class RuntimeCommandExecTest {
 
@@ -24,7 +23,7 @@ public class RuntimeCommandExecTest {
             String value = RuntimeCommandExec.exec(command);
             assert !(new File(value).isDirectory());
         } catch (RuntimeCommandException e) {
-            assert e.getCause() instanceof IOException;
+            assert e.getMessage().contains("not found");
         }
         command = "cat /noFileShouldBeWithThatName";
         try {
