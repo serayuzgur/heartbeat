@@ -36,7 +36,7 @@ public class Pin {
 
     private boolean enabled;
 
-    protected Pin(String code, Mode mode, PinCommand command) throws PinCommandException {
+    public Pin(String code, Mode mode, PinCommand command) throws PinCommandException {
         this.code = code;
         this.path = command.path(this);
         this.enabled = false;
@@ -45,7 +45,7 @@ public class Pin {
         setMode(mode);
     }
 
-    protected Pin(String code, File path, Mode mode, PinCommand command) throws PinCommandException {
+    public Pin(String code, File path, Mode mode, PinCommand command) throws PinCommandException {
         this.code = code;
         this.path = path;
         this.enabled = false;
@@ -54,7 +54,7 @@ public class Pin {
         setMode(mode);
     }
 
-    protected Pin(String code, PinCommand command) throws PinCommandException {
+    public Pin(String code, PinCommand command) throws PinCommandException {
         this.code = code;
         this.path = command.path(this);
         this.enabled = false;
@@ -64,7 +64,7 @@ public class Pin {
     }
 
 
-    protected Pin(String code, File path, PinCommand command) throws PinCommandException {
+    public Pin(String code, File path, PinCommand command) throws PinCommandException {
         this.code = code;
         this.path = path;
         this.enabled = false;
