@@ -1,6 +1,7 @@
 package com.heartbeat.pin;
 
 import com.heartbeat.log.Logger;
+import com.heartbeat.pin.command.PinCommandException;
 import com.heartbeat.pin.listener.PollerPinListener;
 import com.heartbeat.pin.listener.WatcherPinListener;
 import org.junit.After;
@@ -62,9 +63,17 @@ public class PinWriterReaderTest {
 
     @org.junit.Test
     public void testWriteWithReader() throws Exception {
-        Pin pin = new Pin();
-        pin.setCode("PIN_1");
-        pin.setPath(temp);
+        Pin pin = new Pin("P1", temp, Pin.Mode.OUT, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.OUT;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
 
         PinWriter writer = new PinWriter(pin);
         PinReader reader = new PinReader(pin);
@@ -82,9 +91,18 @@ public class PinWriterReaderTest {
 
     @org.junit.Test
     public void testWriteWithPollListener() throws Exception {
-        final Pin pin = new Pin();
-        pin.setCode("PIN_1");
-        pin.setPath(temp);
+        final Pin pin = new Pin("P1", temp, Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
+
         Logger.setLevel(Logger.Level.DEBUG);
 
         PollerPinListener listener = new PollerPinListener(pin);
@@ -98,9 +116,18 @@ public class PinWriterReaderTest {
 
     @org.junit.Test
     public void testWriteWithWatchListener() throws Exception {
-        final Pin pin = new Pin();
-        pin.setCode("PIN_1");
-        pin.setPath(temp);
+        final Pin pin = new Pin("P1", temp, Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
+
         Logger.setLevel(Logger.Level.DEBUG);
 
         WatcherPinListener listener = new WatcherPinListener(pin);
@@ -115,9 +142,18 @@ public class PinWriterReaderTest {
 
     @org.junit.Test
     public void testWriteWithPollerListenerAndReader() throws Exception {
-        final Pin pin = new Pin();
-        pin.setCode("PIN_1");
-        pin.setPath(temp);
+        final Pin pin = new Pin("P1", temp, Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
+
 
         PollerPinListener listener = new PollerPinListener(pin);
         listener.setChangeListener(new PinChangeListener() {
@@ -142,9 +178,18 @@ public class PinWriterReaderTest {
 
     @org.junit.Test
     public void testWriteWithWatcherListenerAndReader() throws Exception {
-        final Pin pin = new Pin();
-        pin.setCode("PIN_1");
-        pin.setPath(temp);
+        final Pin pin = new Pin("P1", temp, Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
+
 
         WatcherPinListener listener = new WatcherPinListener(pin);
         listener.setChangeListener(new PinChangeListener() {

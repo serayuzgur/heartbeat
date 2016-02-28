@@ -24,6 +24,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.heartbeat</groupId>
+            <artifactId>heartbeat-common</artifactId>
+            <version>0.1</version>
+        </dependency>
     </dependencies>
 
 

@@ -1,5 +1,6 @@
 package com.heartbeat.pin;
 
+import com.heartbeat.pin.command.PinCommandException;
 import org.junit.Test;
 
 import java.io.File;
@@ -8,21 +9,45 @@ public class PinTest {
 
     @Test
     public void testSettersGetters() throws Exception {
-        Pin a = new Pin();
-        a.setCode("P1");
+        Pin a = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
         assert a.getCode().equals("P1");
-        a.setPath(new File("/sys/class/gpio/gpio/P1/value"));
         assert a.getPath().equals(new File("/sys/class/gpio/gpio/P1/value"));
     }
 
     @Test
     public void testEquals() throws Exception {
-        Pin a = new Pin();
-        a.setCode("P1");
-        a.setPath(new File("/sys/class/gpio/gpio/P1/value"));
-        Pin b = new Pin();
-        b.setCode("P1");
-        b.setPath(new File("/sys/class/gpio/gpio/P1/value"));
+        Pin a = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
+        Pin b = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
 
         assert !a.equals(null);
         assert a.equals(b);
@@ -30,21 +55,45 @@ public class PinTest {
 
     @Test
     public void testHashCode() throws Exception {
-        Pin a = new Pin();
-        a.setCode("P1");
-        a.setPath(new File("/sys/class/gpio/gpio/P1/value"));
-        Pin b = new Pin();
-        b.setCode("P1");
-        b.setPath(new File("/sys/class/gpio/gpio/P1/value"));
+        Pin a = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
+        Pin b = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
         assert a.hashCode() == b.hashCode();
 
     }
 
     @Test
     public void testToString() throws Exception {
-        Pin a = new Pin();
-        a.setCode("P1");
-        a.setPath(new File("P1PATH"));
+        Pin a = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
         assert "Pin{code='P1', path=P1PATH}".equals(a.toString());
 
     }
