@@ -7,6 +7,7 @@ import java.io.File;
 
 public class PinTest {
 
+
     @Test
     public void testSettersGetters() throws Exception {
         Pin a = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
@@ -26,7 +27,7 @@ public class PinTest {
 
     @Test
     public void testEquals() throws Exception {
-        Pin a = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+        Pin a = new Pin("P1", Pin.Mode.IN, new TestPinCommand() {
             @Override
             public Pin.Mode getMode(Pin pin) throws PinCommandException {
                 return Pin.Mode.IN;
@@ -37,7 +38,7 @@ public class PinTest {
                 return true;
             }
         });
-        Pin b = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+        Pin b = new Pin("P1", Pin.Mode.IN, new TestPinCommand() {
             @Override
             public Pin.Mode getMode(Pin pin) throws PinCommandException {
                 return Pin.Mode.IN;
@@ -83,7 +84,7 @@ public class PinTest {
 
     @Test
     public void testToString() throws Exception {
-        Pin a = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+        Pin a = new Pin("P1", new TestPinCommand() {
             @Override
             public Pin.Mode getMode(Pin pin) throws PinCommandException {
                 return Pin.Mode.IN;
@@ -94,7 +95,7 @@ public class PinTest {
                 return true;
             }
         });
-        assert "Pin{code='P1', path=/sys/class/gpio/gpio/P1/value, mode=IN, enabled=true}".equals(a.toString());
+        assert "Pin{code='P1', path=/sample/P1, mode=IN, enabled=true}".equals(a.toString());
 
     }
 }
