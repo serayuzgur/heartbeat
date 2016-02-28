@@ -23,6 +23,8 @@ public class PinTest {
         });
         assert a.getCode().equals("P1");
         assert a.getPath().equals(new File("/sys/class/gpio/gpio/P1/value"));
+        assert a.getMode().equals(Pin.Mode.IN);
+
     }
 
     @Test
@@ -98,4 +100,57 @@ public class PinTest {
         assert "Pin{code='P1', path=/sample/P1, mode=IN, enabled=true}".equals(a.toString());
     }
 
+    @Test
+    public void testEnable() throws Exception {
+        Pin a = new Pin("P1", new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.OUT;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
+        a.write(false);
+
+        a.disable();
+        try {
+            a.write(false);
+            assert false;
+        } catch (PinCommandException e) {
+            assert true;
+        }
+    }
+
+    @Test
+    public void testMode() throws Exception {
+        Pin a = new Pin("P1", new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.OUT;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
+        a.write(false);
+        try {
+            a.read();
+            assert false;
+        } catch (PinCommandException e) {
+            assert true;
+        }
+        a.setMode(Pin.Mode.IN);
+        a.read();
+        try {
+            a.write(false);
+            assert false;
+        } catch (PinCommandException e) {
+            assert true;
+        }
+    }
 }
