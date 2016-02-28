@@ -22,7 +22,7 @@ heartbeat is a minimalist Java framework for single-board computers (C.H.I.P., R
 After some programming experience with SBCs, we decided to create a **framework** to solve common development problems by aiding **developers** with **best practices** and **minimalist libraries**.
 
 ## Installation
-Minimum Java Version is 7
+Required Java Version: 1.7
 
 ```
 git clone https://github.com/serayuzgur/heartbeat.git
@@ -56,7 +56,7 @@ jdk:
   - openjdk7
 ```
 
-You can starts tests by
+For running tests:
 ```
 mvn test
 ```
