@@ -157,8 +157,9 @@ public class Pin {
     public String toString() {
         final StringBuilder sb = new StringBuilder("Pin{");
         sb.append("code='").append(code).append('\'');
-        sb.append(", path=").append(path);
+        sb.append(", path=").append(path.getPath());
         sb.append(", mode=").append(mode);
+        sb.append(", enabled=").append(enabled);
         sb.append('}');
         return sb.toString();
     }
