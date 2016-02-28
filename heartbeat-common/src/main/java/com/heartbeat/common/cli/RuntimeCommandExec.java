@@ -1,8 +1,11 @@
 package com.heartbeat.common.cli;
 
+import com.heartbeat.common.board.OperatingSystem;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A helper class to exec system commands.
@@ -24,8 +27,10 @@ public class RuntimeCommandExec {
      */
     public static synchronized String exec(String command) throws RuntimeCommandException {
         try {
+            //Split the command
+            //Modify according to the OS.
             //Create the process with streams assigned.
-            Process p = Runtime.getRuntime().exec(command);
+            Process p = getOSSpecificProcess(command);
             BufferedReader stdInput = new BufferedReader(new
                     InputStreamReader(p.getInputStream()));
             BufferedReader stdError = new BufferedReader(new
@@ -45,6 +50,13 @@ public class RuntimeCommandExec {
                 hasError = true;
             }
 
+            //Check the exiting code.
+            try {
+                boolean niceExit = p.waitFor(2, TimeUnit.SECONDS);
+                if (!niceExit)
+                    hasError = true;
+            } catch (InterruptedException e) {
+            }
             //In case of error, just merge the outputs together and throw an exception.
             if (hasError) {
                 throw new RuntimeCommandException(result.toString());
@@ -56,4 +68,11 @@ public class RuntimeCommandExec {
             throw new RuntimeCommandException(e);
         }
     }
+
+    private static Process getOSSpecificProcess(String command) throws IOException {
+        ProcessBuilder pb = new ProcessBuilder(OperatingSystem.getType().getCmdPrefix());
+        pb.command().add(command);
+        return pb.start();
+    }
+
 }
