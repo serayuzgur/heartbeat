@@ -56,7 +56,7 @@ public class PinTest {
 
     @Test
     public void testHashCode() throws Exception {
-        Pin a = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), Pin.Mode.IN, new TestPinCommand() {
+        Pin a = new Pin("P1", new File("/sys/class/gpio/gpio/P1/value"), new TestPinCommand() {
             @Override
             public Pin.Mode getMode(Pin pin) throws PinCommandException {
                 return Pin.Mode.IN;
@@ -96,6 +96,6 @@ public class PinTest {
             }
         });
         assert "Pin{code='P1', path=/sample/P1, mode=IN, enabled=true}".equals(a.toString());
-
     }
+
 }
