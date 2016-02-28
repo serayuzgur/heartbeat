@@ -17,8 +17,8 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
  * PinListener implementation with WatchService. It is a native listener with recourse friendly implementation.
  * Speed changes according to the OS you ar using.
  * For OSX response time is 2 sec.
- * Linux ? sec.
- * Windows ? sec.
+ * LINUX ? sec.
+ * WINDOWS ? sec.
  */
 public class WatcherPinListener extends Thread {
     private static final String TAG = WatcherPinListener.class.getName();
