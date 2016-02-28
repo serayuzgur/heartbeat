@@ -41,6 +41,7 @@ public class Pin {
         this.path = command.path(this);
         this.enabled = false;
         this.command = command;
+        enable();
         setMode(mode);
     }
 
@@ -49,6 +50,7 @@ public class Pin {
         this.path = path;
         this.enabled = false;
         this.command = command;
+        enable();
         setMode(mode);
     }
 
@@ -57,6 +59,7 @@ public class Pin {
         this.path = command.path(this);
         this.enabled = false;
         this.command = command;
+        enable();
         readMode();
     }
 
@@ -66,6 +69,7 @@ public class Pin {
         this.path = path;
         this.enabled = false;
         this.command = command;
+        enable();
         readMode();
     }
 

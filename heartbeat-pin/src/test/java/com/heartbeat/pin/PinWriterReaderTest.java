@@ -103,6 +103,7 @@ public class PinWriterReaderTest {
             }
         });
 
+        pin.enable();
         Logger.setLevel(Logger.Level.DEBUG);
 
         PollerPinListener listener = new PollerPinListener(pin);
