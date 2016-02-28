@@ -3,9 +3,10 @@ package com.heartbeat.pin.command.system;
 import com.heartbeat.common.cli.RuntimeCommandException;
 import com.heartbeat.common.cli.RuntimeCommandExec;
 import com.heartbeat.pin.Pin;
-import com.heartbeat.pin.command.PinCommandException;
 import com.heartbeat.pin.command.PinCommand;
+import com.heartbeat.pin.command.PinCommandException;
 
+import java.io.File;
 import java.util.Locale;
 
 import static java.lang.String.format;
@@ -95,6 +96,11 @@ public class ChipSystemPinCommand implements PinCommand {
         }
     }
 
+    @Override
+    public File path(Pin pin) {
+        return new File(Commands.PATH.command(pin));
+    }
+
 
     /**
      * Template of the commands.
@@ -107,7 +113,8 @@ public class ChipSystemPinCommand implements PinCommand {
         DISABLE("echo %s | sudo tee /sys/class/gpio/unexport"),
         READ("cat /sys/class/gpio/gpio%s/value"),
         WRITE_HIGH("echo 1 > /sys/class/gpio/gpio%s/value"),
-        WRITE_LOW("echo 0 > /sys/class/gpio/gpio%s/value");
+        WRITE_LOW("echo 0 > /sys/class/gpio/gpio%s/value"),
+        PATH("/sys/class/gpio/gpio%s");
 
         private final String command;
 
