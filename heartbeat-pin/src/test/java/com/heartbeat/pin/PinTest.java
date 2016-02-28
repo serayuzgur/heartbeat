@@ -94,7 +94,7 @@ public class PinTest {
                 return true;
             }
         });
-        assert "Pin{code='P1', path=P1PATH}".equals(a.toString());
+        assert "Pin{code='P1', path=/sys/class/gpio/gpio/P1/value, mode=IN, enabled=true}".equals(a.toString());
 
     }
 }
