@@ -5,7 +5,6 @@ import com.heartbeat.common.board.OperatingSystem;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.concurrent.TimeUnit;
 
 /**
  * A helper class to exec system commands.
@@ -52,8 +51,8 @@ public class RuntimeCommandExec {
 
             //Check the exiting code.
             try {
-                boolean niceExit = p.waitFor(2, TimeUnit.SECONDS);
-                if (!niceExit)
+                int niceExit = p.waitFor();
+                if (niceExit != 0)
                     hasError = true;
             } catch (InterruptedException e) {
             }
