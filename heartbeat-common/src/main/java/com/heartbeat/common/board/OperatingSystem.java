@@ -13,12 +13,21 @@ public final class OperatingSystem {
     private static Type os;
 
     /**
-     * Detect the operating system from the os.name System propertyt
+     * Detect the operating system from the os.name System property
      *
      * @returns - the operating system
      */
     public static Type getType() {
-        if (os == null) {
+        return getType(false);
+    }
+
+    /**
+     * Detect the operating system from the os.name System property
+     *
+     * @returns - the operating system
+     */
+    public static Type getType(boolean force) {
+        if (force || os == null) {
             String osName = System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH);
             if (osName.contains("nux")) {
                 OperatingSystem.os = Type.LINUX;
