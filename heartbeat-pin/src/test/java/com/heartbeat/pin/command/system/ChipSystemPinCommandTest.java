@@ -16,6 +16,7 @@ public class ChipSystemPinCommandTest {
             ChipSystemPinCommand cmd = new ChipSystemPinCommand();
             cmd.getMode(getPin());
         } catch (PinCommandException e) {
+            System.out.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -27,6 +28,7 @@ public class ChipSystemPinCommandTest {
             cmd.setMode(getPin(), Pin.Mode.IN);
             assert true;
         } catch (PinCommandException e) {
+            System.out.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -38,6 +40,7 @@ public class ChipSystemPinCommandTest {
             cmd.enable(getPin());
             assert true;
         } catch (PinCommandException e) {
+            System.out.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -49,6 +52,7 @@ public class ChipSystemPinCommandTest {
             cmd.disable(getPin());
             assert true;
         } catch (PinCommandException e) {
+            System.out.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -60,6 +64,7 @@ public class ChipSystemPinCommandTest {
             cmd.read(getPin());
             assert true;
         } catch (PinCommandException e) {
+            System.out.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -71,6 +76,7 @@ public class ChipSystemPinCommandTest {
             cmd.write(getPin(), false);
             assert true;
         } catch (PinCommandException e) {
+            System.out.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -81,6 +87,7 @@ public class ChipSystemPinCommandTest {
             ChipSystemPinCommand cmd = new ChipSystemPinCommand();
             assert cmd.path(getPin()).equals("/sys/class/gpio/gpioP1");
         } catch (PinCommandException e) {
+            System.out.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
