@@ -2,8 +2,10 @@ package com.heartbeat.pin.command.system;
 
 import com.heartbeat.pin.Pin;
 import com.heartbeat.pin.command.PinCommandException;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 
+@FixMethodOrder
 public class ChipSystemPinCommandTest {
     private Pin getPin() throws PinCommandException {
         final Pin pin = new Pin("P1", Pin.Mode.IN, new ChipSystemPinCommand());
@@ -16,7 +18,7 @@ public class ChipSystemPinCommandTest {
             ChipSystemPinCommand cmd = new ChipSystemPinCommand();
             cmd.getMode(getPin());
         } catch (PinCommandException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -28,7 +30,7 @@ public class ChipSystemPinCommandTest {
             cmd.setMode(getPin(), Pin.Mode.IN);
             assert true;
         } catch (PinCommandException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -40,7 +42,7 @@ public class ChipSystemPinCommandTest {
             cmd.enable(getPin());
             assert true;
         } catch (PinCommandException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -52,7 +54,7 @@ public class ChipSystemPinCommandTest {
             cmd.disable(getPin());
             assert true;
         } catch (PinCommandException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -64,7 +66,7 @@ public class ChipSystemPinCommandTest {
             cmd.read(getPin());
             assert true;
         } catch (PinCommandException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -76,7 +78,7 @@ public class ChipSystemPinCommandTest {
             cmd.write(getPin(), false);
             assert true;
         } catch (PinCommandException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
@@ -87,7 +89,7 @@ public class ChipSystemPinCommandTest {
             ChipSystemPinCommand cmd = new ChipSystemPinCommand();
             assert cmd.path(getPin()).equals("/sys/class/gpio/gpioP1");
         } catch (PinCommandException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             assert e.getMessage().contains("sudo:");
         }
     }
