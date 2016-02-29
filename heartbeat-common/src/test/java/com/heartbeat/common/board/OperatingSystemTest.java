@@ -26,6 +26,9 @@ public class OperatingSystemTest {
         System.setProperty("os.name", "mac");
         assert OperatingSystem.Type.MAC_OS.equals(OperatingSystem.getType(true));
 
+        System.setProperty("os.name", "darwin");
+        assert OperatingSystem.Type.MAC_OS.equals(OperatingSystem.getType(true));
+
     }
 
     @Test
