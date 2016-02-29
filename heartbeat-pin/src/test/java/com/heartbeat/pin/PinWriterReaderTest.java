@@ -107,6 +107,7 @@ public class PinWriterReaderTest {
         Logger.setLevel(Logger.Level.DEBUG);
 
         PollerPinListener listener = new PollerPinListener(pin);
+        assert listener.getChangeListener() == null;
         listener.start();
         Thread a = new WriterThread(pin);
         a.start();
@@ -133,11 +134,31 @@ public class PinWriterReaderTest {
 
         WatcherPinListener listener = new WatcherPinListener(pin);
         listener.start();
+        assert listener.getChangeListener() == null;
         Thread a = new WriterThread(pin);
         a.start();
         listener.join(1000);
         a.join();
         listener.close();
+        Pin pin2 = new Pin("P1", new File("/nofile/test"), Pin.Mode.IN, new TestPinCommand() {
+            @Override
+            public Pin.Mode getMode(Pin pin) throws PinCommandException {
+                return Pin.Mode.IN;
+            }
+
+            @Override
+            public boolean read(Pin pin) throws PinCommandException {
+                return true;
+            }
+        });
+
+        try {
+            WatcherPinListener listener2 = new WatcherPinListener(pin2);
+            assert false;
+        } catch (IOException e) {
+            assert true;
+        }
+
     }
 
 
