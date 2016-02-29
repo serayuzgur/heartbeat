@@ -30,7 +30,7 @@ public class ChipSystemPinCommandTest {
         else if (OperatingSystem.getType().equals(OperatingSystem.Type.LINUX))
             assert e.getMessage().contains("sudo:") || e.getMessage().contains("No such file or directory");
         else if (OperatingSystem.getType().equals(OperatingSystem.Type.WINDOWS))
-            assert e.getMessage().contains("No such file or directory");
+            assert e.getMessage().contains("'sudo' is not recognized as an internal or external command");
     }
 
     @Test
