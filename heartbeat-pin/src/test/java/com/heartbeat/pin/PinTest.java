@@ -1,5 +1,6 @@
 package com.heartbeat.pin;
 
+import com.heartbeat.common.board.OperatingSystem;
 import com.heartbeat.pin.command.PinCommandException;
 import org.junit.Test;
 
@@ -97,7 +98,11 @@ public class PinTest {
                 return true;
             }
         });
-        assert "Pin{code='P1', path=/sample/P1, mode=IN, enabled=true}".equals(a.toString());
+        String expectedStr = "Pin{code='P1', path=/sample/P1, mode=IN, enabled=true}";
+        if (OperatingSystem.getType() == OperatingSystem.Type.WINDOWS) {
+            expectedStr = expectedStr.replace('/', '\\');
+        }
+        assert expectedStr.equals(a.toString());
     }
 
     @Test
