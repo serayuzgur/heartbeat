@@ -20,15 +20,11 @@ public class OperatingSystemTest {
         assert OperatingSystem.Type.LINUX.equals(OperatingSystem.getType(true));
     }
 
+
     @Test
     public void testGetTypeMac() throws Exception {
-
         System.setProperty("os.name", "mac");
         assert OperatingSystem.Type.MAC_OS.equals(OperatingSystem.getType(true));
-
-        System.setProperty("os.name", "darwin");
-        assert OperatingSystem.Type.MAC_OS.equals(OperatingSystem.getType(true));
-
     }
 
     @Test

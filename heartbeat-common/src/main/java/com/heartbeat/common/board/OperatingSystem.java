@@ -33,7 +33,7 @@ public final class OperatingSystem {
                 OperatingSystem.os = Type.LINUX;
             } else if (osName.contains("win")) {
                 OperatingSystem.os = Type.WINDOWS;
-            } else if ((osName.contains("mac")) || (osName.contains("darwin"))) {
+            } else if (osName.contains("mac")) {
                 OperatingSystem.os = Type.MAC_OS;
             } else {
                 OperatingSystem.os = Type.OTHER;
