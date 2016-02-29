@@ -22,7 +22,7 @@ public class PinCommandExceptionTest {
         assert "A".equals(e4.getMessage());
         assert "B".equals(e4.getCause().getMessage());
 
-        PinCommandException e5 = new PinCommandException("A", new RuntimeException("B"));
+        PinCommandException e5 = new PinCommandException("A", new RuntimeException("B"), false, false);
         assert e5.getCause() instanceof RuntimeException;
         assert "A".equals(e5.getMessage());
         assert "B".equals(e5.getCause().getMessage());
