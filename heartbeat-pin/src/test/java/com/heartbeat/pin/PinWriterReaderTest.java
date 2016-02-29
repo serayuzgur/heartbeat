@@ -31,7 +31,7 @@ public class PinWriterReaderTest {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 5; i++) {
                 boolean written = i % 2 == 0;
                 try {
                     writer.write(written);
@@ -77,7 +77,7 @@ public class PinWriterReaderTest {
 
         PinWriter writer = new PinWriter(pin);
         PinReader reader = new PinReader(pin);
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             boolean written = i % 2 == 0;
             writer.write(written);
             boolean read = reader.read();
