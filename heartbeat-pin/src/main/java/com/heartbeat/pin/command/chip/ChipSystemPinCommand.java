@@ -1,4 +1,4 @@
-package com.heartbeat.pin.command.system;
+package com.heartbeat.pin.command.chip;
 
 import com.heartbeat.common.cli.RuntimeCommandException;
 import com.heartbeat.common.cli.RuntimeCommandExec;
@@ -12,7 +12,7 @@ import java.util.Locale;
 import static java.lang.String.format;
 
 /**
- * An implementation of {@link PinCommand} which holds the specific commands for C.H.I.P.
+ * An implementation of {@link PinCommand} which holds the system commands for C.H.I.P.
  */
 public class ChipSystemPinCommand implements PinCommand {
 

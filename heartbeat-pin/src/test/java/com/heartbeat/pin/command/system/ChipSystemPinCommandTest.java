@@ -3,6 +3,7 @@ package com.heartbeat.pin.command.system;
 import com.heartbeat.common.board.OperatingSystem;
 import com.heartbeat.pin.Pin;
 import com.heartbeat.pin.command.PinCommandException;
+import com.heartbeat.pin.command.chip.ChipSystemPinCommand;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 
