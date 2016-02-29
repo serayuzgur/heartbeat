@@ -68,6 +68,11 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
             <id>CHIPnovator</id>
             <timezone>-6</timezone>
         </developer>
+        <developer>
+            <name>Aaron Gallagher</name>
+            <id>aagallag</id>
+            <timezone>-6</timezone>
+        </developer>
     </developers>
 
     <build>
