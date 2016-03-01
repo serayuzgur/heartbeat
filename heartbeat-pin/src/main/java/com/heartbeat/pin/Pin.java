@@ -18,16 +18,16 @@ import java.io.File;
  */
 public class Pin {
     /*  Pins
- *
- *  X10-P0: 408
- *  X10-P1: 409
- *  X10-P2: 410
- *  X10-P3: 411
- *  X10-P4: 412
- *  X10-P5: 413
- *  X10-P6: 414
- *  X10-P7: 415
- */
+     *
+     *  X10-P0: 408
+     *  X10-P1: 409
+     *  X10-P2: 410
+     *  X10-P3: 411
+     *  X10-P4: 412
+     *  X10-P5: 413
+     *  X10-P6: 414
+     *  X10-P7: 415
+     */
     private final String code;
     private final File path;
     protected Mode mode;
@@ -162,6 +162,10 @@ public class Pin {
         sb.append(", enabled=").append(enabled);
         sb.append('}');
         return sb.toString();
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 
     public enum Mode {

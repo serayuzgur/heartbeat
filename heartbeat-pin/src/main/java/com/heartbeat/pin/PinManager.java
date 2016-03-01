@@ -36,7 +36,9 @@ public class PinManager {
         if (pins.containsKey(code)) {
             Pin pin = pins.get(code);
             if (!pin.getMode().equals(mode))
-                throw new PinException("Pin already created with mode " + pin.getMode().name());
+                throw new PinException("Pin already created with a different mode " + pin.getMode().name());
+            if (!pin.isEnabled())
+                pin.enable();
             return pins.get(code);
         }
         Pin pin = new Pin(code, mode, getPinCommand());
