@@ -3,7 +3,7 @@ package com.heartbeat.pin.mapping;
 /**
  * An interface for Pin mappings
  */
-public interface PinMapping {
+public interface PinCode {
     /**
      * Returns the OS code of the pin.
      *

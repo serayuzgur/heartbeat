@@ -3,7 +3,7 @@ package com.heartbeat.pin.mapping;
 /**
  * Holds Board Pin name mapping as enum.
  */
-public enum ChipPinMapping implements PinMapping {
+public enum ChipPinCode implements PinCode {
     XIO_P0("408", "U14_13"),
     XIO_P1("409", "U14_14"),
     XIO_P2("410", "U14_15"),
@@ -23,7 +23,7 @@ public enum ChipPinMapping implements PinMapping {
      */
     private final String hwCode;
 
-    ChipPinMapping(String code, String hwCode) {
+    ChipPinCode(String code, String hwCode) {
 
         this.code = code;
         this.hwCode = hwCode;

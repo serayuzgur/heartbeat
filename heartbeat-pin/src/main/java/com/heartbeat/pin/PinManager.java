@@ -3,6 +3,8 @@ package com.heartbeat.pin;
 import com.heartbeat.common.board.BoardType;
 import com.heartbeat.pin.command.PinCommand;
 import com.heartbeat.pin.command.chip.ChipSystemPinCommand;
+import com.heartbeat.pin.mapping.ChipPinCode;
+import com.heartbeat.pin.mapping.PinCode;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -16,6 +18,12 @@ public class PinManager {
     private final BoardType boardType;
     private final PinCommand pinCommand;
 
+    public Class<ChipPinCode> getPinCodeClass() {
+        return pinCodeClass;
+    }
+
+    private final Class<ChipPinCode> pinCodeClass;
+
     public static PinManager getInstance() {
         return instance;
     }
@@ -25,14 +33,19 @@ public class PinManager {
         switch (boardType) {
             case CHIP:
                 this.pinCommand = new ChipSystemPinCommand();
+                this.pinCodeClass = ChipPinCode.class;
                 break;
             default:
                 this.pinCommand = new ChipSystemPinCommand();
+                this.pinCodeClass = ChipPinCode.class;
                 break;
         }
     }
 
-    public Pin createPin(String code, Pin.Mode mode) throws PinException {
+    public Pin createPin(PinCode pinCode, Pin.Mode mode) throws PinException {
+        if (!pinCodeClass.isInstance(pinCode))
+            throw new PinException("Pin code is not suitable with this board Please use " + pinCodeClass.getName());
+        String code = pinCode.getCode();
         if (pins.containsKey(code)) {
             Pin pin = pins.get(code);
             if (!pin.getMode().equals(mode))

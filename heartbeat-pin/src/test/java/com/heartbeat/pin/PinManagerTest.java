@@ -1,11 +1,23 @@
 package com.heartbeat.pin;
 
+import com.heartbeat.pin.mapping.PinCode;
 import org.junit.Test;
 
-/**
- * Created by serayuzgur on 29/02/16.
- */
+
 public class PinManagerTest {
+    private enum TestPinCode implements PinCode {
+        TEST_PIN;
+
+        @Override
+        public String getCode() {
+            return "TestP0";
+        }
+
+        @Override
+        public String getHwCode() {
+            return "P10";
+        }
+    }
 
     @Test
     public void testGetInstance() throws Exception {
@@ -16,7 +28,12 @@ public class PinManagerTest {
 
     @Test
     public void testCreatePin() throws Exception {
-//        Pin pin = PinManager.getInstance().createPin("A", Pin.Mode.IN);
+        try {
+            Pin pin = PinManager.getInstance().createPin(TestPinCode.TEST_PIN, Pin.Mode.IN);
+        } catch (PinException e) {
+            assert e.getMessage().startsWith("Pin code is not suitable with this board");
+        }
+
 //        assert pin.getMode() == Pin.Mode.IN;
 //        assert pin.getCode().equals("A");
 //
@@ -35,6 +52,12 @@ public class PinManagerTest {
 
     @Test
     public void testGetPin() throws Exception {
+        try {
+            Pin pin = PinManager.getInstance().getPin("XIO_P0");
+            assert pin != null;
+        } catch (PinException e) {
+            assert e.getMessage().equals("Pin is not created. Please call 'createPin' first.");
+        }
 
     }
 }
