@@ -1,23 +1,22 @@
-package com.heartbeat.pin.command.system;
+package com.heartbeat.pin.command.chip;
 
 import com.heartbeat.common.board.OperatingSystem;
 import com.heartbeat.pin.Pin;
 import com.heartbeat.pin.command.PinCommandException;
-import com.heartbeat.pin.command.chip.ChipSystemPinCommand;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 
 @FixMethodOrder
-public class ChipSystemPinCommandTest {
+public class ChipJavaPinCommandTest {
     private Pin getPin() throws PinCommandException {
-        final Pin pin = new Pin("P1", Pin.Mode.IN, new ChipSystemPinCommand());
+        final Pin pin = new Pin("P1", Pin.Mode.IN, new ChipJavaPinCommand());
         return pin;
     }
 
     @Test
     public void testGetMode() throws Exception {
         try {
-            ChipSystemPinCommand cmd = new ChipSystemPinCommand();
+            ChipJavaPinCommand cmd = new ChipJavaPinCommand();
             cmd.getMode(getPin());
         } catch (PinCommandException e) {
             dealWithException(e);
@@ -37,7 +36,7 @@ public class ChipSystemPinCommandTest {
     @Test
     public void testSetMode() throws Exception {
         try {
-            ChipSystemPinCommand cmd = new ChipSystemPinCommand();
+            ChipJavaPinCommand cmd = new ChipJavaPinCommand();
             cmd.setMode(getPin(), Pin.Mode.IN);
             assert true;
         } catch (PinCommandException e) {
@@ -48,7 +47,7 @@ public class ChipSystemPinCommandTest {
     @Test
     public void testEnable() throws Exception {
         try {
-            ChipSystemPinCommand cmd = new ChipSystemPinCommand();
+            ChipJavaPinCommand cmd = new ChipJavaPinCommand();
             cmd.enable(getPin());
             assert true;
         } catch (PinCommandException e) {
@@ -59,7 +58,7 @@ public class ChipSystemPinCommandTest {
     @Test
     public void testDisable() throws Exception {
         try {
-            ChipSystemPinCommand cmd = new ChipSystemPinCommand();
+            ChipJavaPinCommand cmd = new ChipJavaPinCommand();
             cmd.disable(getPin());
             assert true;
         } catch (PinCommandException e) {
@@ -70,7 +69,7 @@ public class ChipSystemPinCommandTest {
     @Test
     public void testRead() throws Exception {
         try {
-            ChipSystemPinCommand cmd = new ChipSystemPinCommand();
+            ChipJavaPinCommand cmd = new ChipJavaPinCommand();
             cmd.read(getPin());
             assert true;
         } catch (PinCommandException e) {
@@ -81,7 +80,7 @@ public class ChipSystemPinCommandTest {
     @Test
     public void testWrite() throws Exception {
         try {
-            ChipSystemPinCommand cmd = new ChipSystemPinCommand();
+            ChipJavaPinCommand cmd = new ChipJavaPinCommand();
             cmd.write(getPin(), false);
             assert true;
         } catch (PinCommandException e) {
@@ -92,7 +91,7 @@ public class ChipSystemPinCommandTest {
     @Test
     public void testPath() throws Exception {
         try {
-            ChipSystemPinCommand cmd = new ChipSystemPinCommand();
+            ChipJavaPinCommand cmd = new ChipJavaPinCommand();
             assert cmd.path(getPin()).equals("/sys/class/gpio/gpioP1");
         } catch (PinCommandException e) {
             dealWithException(e);
