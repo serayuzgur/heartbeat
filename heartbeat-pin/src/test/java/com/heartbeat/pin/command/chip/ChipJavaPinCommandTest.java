@@ -28,7 +28,7 @@ public class ChipJavaPinCommandTest {
         if (OperatingSystem.getType().equals(OperatingSystem.Type.MAC_OS))
             assert e.getMessage().contains("sudo:") || e.getMessage().contains("No such file or directory");
         else if (OperatingSystem.getType().equals(OperatingSystem.Type.LINUX))
-            assert e.getMessage().contains("sudo:") || e.getMessage().contains("No such file or directory");
+            assert e.getMessage().contains("sudo:") || e.getMessage().contains("No such file or directory") || e.getMessage().contains("(Permission denied)");
         else if (OperatingSystem.getType().equals(OperatingSystem.Type.WINDOWS))
             assert e.getMessage().contains("'sudo' is not recognized as an internal or external command");
     }
