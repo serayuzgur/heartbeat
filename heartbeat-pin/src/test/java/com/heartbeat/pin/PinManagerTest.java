@@ -58,6 +58,6 @@ public class PinManagerTest {
         } catch (PinException e) {
             assert e.getMessage().equals("Pin is not created. Please call 'createPin' first.");
         }
-
     }
+
 }
