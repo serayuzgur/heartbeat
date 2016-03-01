@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/serayuzgur/heartbeat.svg?branch=master)](https://travis-ci.org/serayuzgur/heartbeat)
 [![codecov.io](https://codecov.io/github/serayuzgur/heartbeat/coverage.svg?branch=master)](https://codecov.io/github/serayuzgur/heartbeat?branch=master)
+[![Dependency Status](https://www.versioneye.com/user/projects/56d59bc80a4ec126f7f860ac/badge.svg)](https://www.versioneye.com/user/projects/56d59bc80a4ec126f7f860ac)
 [![Gitter](https://badges.gitter.im/serayuzgur/heartbeat.svg)](https://gitter.im/serayuzgur/heartbeat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 ![codecov.io](https://codecov.io/github/serayuzgur/heartbeat/branch.svg?branch=master)
 ## Synopsis
