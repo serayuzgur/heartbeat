@@ -17,8 +17,6 @@ heartbeat-log is a minimalist java logging library for SBCs. It aims to have a v
     Logger.trace(TAG, "Test Log %s %s", "1", "2"); 
     // Output will be "TRACE [2016-03-13 11:50:32,231] com.sample.YourClass: Test Log 1 2"
 ```
->TODO: An example of HeartbeatApplication
-
 ## Installation
 Currently all installation is managed by parent POM.
 >TODO: Add maven dependency info.
