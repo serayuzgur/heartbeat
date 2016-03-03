@@ -2,32 +2,32 @@
 
 ## Synopsis
 
-heartbeat-common is a minimalist java common library for SBCs.It includes every day ,best-practice classes and methods for SBCs.
-
+heartbeat-common is a java common library for SBCs.It includes every day, best-practice classes and methods for SBCs.
+For all utils our goal was simplicity with high performance and small code base.
 
 ## Code Example
 
 >TODO: An example of HeartbeatApplication
 
-##Motivation
-
->TODO: Write something about testing problems, abstraction from SBC's
-
 ## Installation
-
->TODO: Provide code examples and explanations of how to get the project.
+Currently all installation is managed by parent POM.
+>TODO: Add maven dependency info.
 
 ## API Reference
+This section will only explain main groups of utility classes. Each group is a package. For example for finding Array utilities    please take a look at `com.heartbeat.common.array` package.
 
->TODO: Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+* **Array -** Common operations about arrays. All classes inside named strictly to explain the related type. For ex. `byte[]` utils are at `ByteArray` class.
+* **Board -** Utility classes which helps to determinate **board manifacturer** and **operating system**. All platform spesific utilities will be placed here. 
+* **Cli -** Holds important methods and classes which help to create a good&nice **command line interface**. 
+* **Conf -** Necessary infrastructure for applications with configuration.
+* **Dir -** Provides directory utilities. For example getting path jar at runtime.
+* **File -** Utility classes related to file operations. 
+* **Json -** Json utilities based on Boon.
+
 
 ## Tests
+Currently all testing is managed by parent POM.
 
->TODO: Describe and show how to run the tests with code examples.
-
-## Contributors
-
->TODO: Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
 
 ## License
 The MIT License (MIT)

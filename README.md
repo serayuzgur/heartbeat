@@ -33,20 +33,20 @@ mvn package
 ```
 
 ## API Reference
-### heartbeat-common 
+### heartbeat-common [Developing]
 heartbeat-common is a minimalist Java common library for SBCs.  It includes everyday, best-practice classes and methods for SBCs.
 [for more...](./heartbeat-common/README.md)
-### heartbeat-pin
+### heartbeat-pin [Developing]
 heartbeat-pin is a minimalist Java pin access layer for SBCs.
 [for more...](./heartbeat-pin/README.md)
-### heartbeat-network
-heartbeat-network is a minimalist Java network access library for SBCs.  It supports UDP, TCP, and HTTP/S protocols for easy usage. 
+### heartbeat-network [Developing]
+heartbeat-network is a Java network access library for SBCs.  It supports UDP, TCP, and HTTP/S protocols for easy usage. 
 [for more...](./heartbeat-network/README.md)
-### heartbeat-log
-heartbeat-log is a minimalist Java logging library for SBCs.
-It supports file, console, and monitor (node) appenders within a highly-optimized, small library.
+### heartbeat-log [Developing]
+heartbeat-log is a light-weight Java logging library for SBCs.
+It's usage is very similar to log4j. Appenders and Log formatting wil be implemented later. 
 [for more...](./heartbeat-log/README.md)
-### heartbeat-app
+### heartbeat-app [Waiting]
 heartbeat-app is a skeleton Java application for SBC's.
 It includes all heartbeat libraries with basic usage scenarios.
 [for more...](./heartbeat-app/README.md)
