@@ -13,11 +13,8 @@ import static java.lang.String.format;
 public final class Logger {
     private static Level defaultPackageLevel = Level.INFO;
     private static PrintStream stream = System.out;
-
     //TODO: Appender  system
-    //TODO: Set printwriters of Exceptions
     //TODO: Tag-level checks.
-
 
     private Logger() {
     }

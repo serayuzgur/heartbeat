@@ -2,32 +2,69 @@
 
 ## Synopsis
 
-heartbeat-log is a minimalist java logging library for SBCs.
-It supports file and console and monitor (node) appenders as a really optimized and small library.
+heartbeat-log is a minimalist java logging library for SBCs. It aims to have a very small codebase with a very light runtime performance impact.
 
 
 ## Code Example
-
+```java
+    // TAG gives information about your class
+    String TAG = YourClass.class.getName();
+    // Log message at trace level.
+    Logger.trace(TAG, message); 
+    // Output will be "TRACE [2016-03-13 11:50:32,231] com.sample.YourClass: Test Log"
+    
+    // Log message at trace level with additional parameters and formatting.
+    Logger.trace(TAG, "Test Log %s %s", "1", "2"); 
+    // Output will be "TRACE [2016-03-13 11:50:32,231] com.sample.YourClass: Test Log 1 2"
+```
 >TODO: An example of HeartbeatApplication
 
-##Motivation
-
->TODO: Write something about testing problems, abstraction from SBC's
-
 ## Installation
-
->TODO: Provide code examples and explanations of how to get the project.
+Currently all installation is managed by parent POM.
+>TODO: Add maven dependency info.
 
 ## API Reference
+### Log Level
+It supports 5 level of logging which are located in `com.heartbeat.log.Logger.Level`;
 
->TODO: Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+* TRACE
+* DEBUG
+* INFO
+* WARNING
+* ERROR 
+
+Changing log level is very easy `Logger.setLevel(Logger.Level.DEBUG)`.
+>TODO: For now it only supports single log level for all classes and packages. Levelling acording to the tag pattern will be implemented later.
+
+### Log Methods
+All methods logs the given message with the level which specified by the method name. All level checks are done at the start of methods. For the ones who gets `Object... args` as parameters it uses `String.format`. If log level is higher then the methods level formatting newer happpens. Basically no performance penalty.
+
+ * trace(String tag, String message)
+ * trace(String tag, String message, Object... args)
+ * debug(String tag, String message)
+ * debug(String tag, String message, Object... args)
+ * info(String tag, String message)
+ * info(String tag, String message, Object... args)
+ * warn(String tag, String message)
+ * warn(String tag, String message, Object... args)
+ * error(String tag, String message)
+ * error(String tag, String message, Object... args)
+ * error(String tag, String message, Exception ex)
+ * error(String tag, String message, Exception ex, Object... args)
+ 
+### Log Format
+At simplest it creates a log with one fixed format. All additional parameters can be given by using the `String.format` style.
+`DEBUG_LEVEL  [YYYY-mm-DD hh:MM:ss,SSS] TAG: Message`
+
+>TODO: For now it only supports single log format. Additional log formats will be available if needed.
+
+### Log Appenders
+By calling `Logger.setStream(PrintStream stream)` method you can set your own `PrintStream` implementations. By default it uses `System.out` Currently we don't have any managed Appender classes which will be easy to use.  
+
 
 ## Tests
->TODO: Describe and show how to run the tests with code examples.
+Currently all testing is managed by parent POM.
 
-## Contributors
-
->TODO: Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
 
 ## License
 The MIT License (MIT)
