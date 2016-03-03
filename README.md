@@ -13,7 +13,8 @@ heartbeat is a minimalist Java framework for single-board computers (C.H.I.P., R
 
 ## Code Example
 
->TODO: An example of HeartbeatApplication
+All code examples are detailed under module itself. Please take a look at README of each module.
+> TODO: An example of HeartbeatApplication
 
 [CheatSheet](./CheatSheet.md)
 
