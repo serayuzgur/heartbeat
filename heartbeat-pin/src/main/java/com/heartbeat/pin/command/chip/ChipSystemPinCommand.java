@@ -101,6 +101,16 @@ public class ChipSystemPinCommand implements PinCommand {
         return new File(Commands.PATH.command(pin));
     }
 
+    public static void led(boolean on) throws PinCommandException {
+        try {
+            if (on)
+                RuntimeCommandExec.exec(Commands.LED_ON.command());
+            else
+                RuntimeCommandExec.exec(Commands.LED_OFF.command());
+        } catch (RuntimeCommandException e) {
+            throw new PinCommandException(e);
+        }
+    }
 
     /**
      * Template of the commands.
@@ -114,7 +124,9 @@ public class ChipSystemPinCommand implements PinCommand {
         READ("cat /sys/class/gpio/gpio%s/value"),
         WRITE_HIGH("echo 1 > /sys/class/gpio/gpio%s/value"),
         WRITE_LOW("echo 0 > /sys/class/gpio/gpio%s/value"),
-        PATH("/sys/class/gpio/gpio%s");
+        PATH("/sys/class/gpio/gpio%s"),
+        LED_ON("/usr/sbin/i2cset -f -y 0 0x34 0x93 0x1"),
+        LED_OFF("/usr/sbin/i2cset -f -y 0 0x34 0x93 0x0");
 
         private final String command;
 

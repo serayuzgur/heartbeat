@@ -97,4 +97,18 @@ public class ChipSystemPinCommandTest {
             dealWithException(e);
         }
     }
+
+    @Test
+    public void testLed() throws Exception {
+        try {
+            ChipSystemPinCommand.led(true);
+        } catch (PinCommandException e) {
+            dealWithException(e);
+        }
+        try {
+            ChipSystemPinCommand.led(false);
+        } catch (PinCommandException e) {
+            dealWithException(e);
+        }
+    }
 }
