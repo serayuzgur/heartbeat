@@ -19,3 +19,9 @@ sudo nmcli device wifi connect <WIFI_NAME> password <PASSWORD> ifname wlan0
 ```bash
 nohup java -jar <RUNNABLE_JAR_NAME>  &
 ```
+## SSH error due to IP change
+Host key verification failed.
+
+```bash
+ssh-keygen -R hostname
+```
